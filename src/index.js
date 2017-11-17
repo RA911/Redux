@@ -1,32 +1,21 @@
-import createStore from './redux/createStore.js';
+import React from 'react';
+import ReactDOM from 'react-dom';
 
-const counter = (state = 0, action) => {
-    switch (action.type) {
-        case 'INCREMENT':
-            return state += 1;
-        case 'DECREMENT':
-            return state -= 1;
-        default:
-            return state;
-    }
-};
+import createStore from './createStore.js';
+import counterReducer from './reducers//counter.js';
+import Counter from './components/counter.js';
+
+const store = createStore(counterReducer);
 
 const render = () => {
-    document.getElementById('counter_value').innerHTML = store.getState();
+    ReactDOM.render(
+        <Counter
+            value={store.getState()}
+            onIncrement={() => store.dispatch({ type: 'INCREMENT' })}
+            onDecrement={() => store.dispatch({ type: 'DECREMENT' })}
+        />,
+        document.getElementById("app")
+    );
 };
 
-const store = createStore(counter);
-
 render();
-
-store.subscribe(() => {
-    render();
-});
-
-document.getElementById('btn_increment_counter').addEventListener('click', () => {
-    store.dispatch({ type: 'INCREMENT' });
-});
-
-document.getElementById('btn_decrement_counter').addEventListener('click', () => {
-    store.dispatch({ type: 'DECREMENT' });
-});
