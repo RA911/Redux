@@ -1,0 +1,31 @@
+{
+  "name": "reduxstarter",
+  "version": "1.0.0",
+  "description": "Redux starter, Dan Abramov egghead",
+  "main": "src/index.js",
+  "scripts": {
+    "build": "./node_modules/.bin/webpack",
+    "watch": "node_modules/.bin/webpack --watch",
+    "start": "node_modules/.bin/webpack-dev-server --open"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/RA911/Redux-Starter.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/RA911/ModernReactRedux/issues"
+  },
+  "homepage": "https://github.com/RA911/ModernReactRedux#readme",
+  "devDependencies": {
+    "babel-core": "6.26.0",
+    "babel-loader": "^7.1.2",
+    "babel-preset-env": "1.6.0",
+    "webpack": "^3.8.1",
+    "webpack-dev-server": "^2.9.4"
+  },
+  "dependencies": {
+    "redux": "^3.0.4"
+  }
+}
